@@ -2,6 +2,8 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <title>吃饭啦!!</title>
     <style type="text/css">
         html{
@@ -15,7 +17,26 @@
             font-size: 18px;
             cursor: pointer;
         }
+
     </style>
+    <!--移动端版本兼容 -->
+    <script type="text/javascript">
+        var phoneWidth =  parseInt(window.screen.width);
+        var phoneScale = phoneWidth/640;
+        var ua = navigator.userAgent;
+        if (/Android (\d+\.\d+)/.test(ua)){
+            var version = parseFloat(RegExp.$1);
+            if(version>2.3){
+                document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+            }else{
+                document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+            }
+        } else {
+            document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+        }
+    </script>
+    <!--移动端版本兼容 end -->
+
 </head>
 <body class="keBody">
 <h1 class="keTitle" align="center">你还在为去哪吃饭烦恼吗？我帮您决定命运</h1>
